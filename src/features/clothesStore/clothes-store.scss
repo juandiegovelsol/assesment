@@ -1,0 +1,55 @@
+.clothes-store {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  &__title {
+    font-weight: 700;
+    font-size: 35px;
+    justify-self: center;
+    align-self: center;
+  }
+  &__store {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .product-card {
+      height: 60vh;
+      width: 30vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid black;
+      border-radius: 5%;
+      overflow: hidden;
+      margin-bottom: 2%;
+      &__title {
+        font-size: 15px;
+      }
+      &__image {
+        height: 250px;
+        width: 250px;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+      &__footer {
+        width: 80%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+    }
+  }
+}
