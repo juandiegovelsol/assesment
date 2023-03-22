@@ -1,6 +1,6 @@
 .product-card {
-  height: 60vh;
-  width: 30vw;
+  height: 450px;
+  width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,8 +13,8 @@
     font-size: 15px;
   }
   &__image {
-    height: 250px;
-    width: 250px;
+    height: 270px;
+    width: 270px;
     img {
       height: 100%;
       width: 100%;
