@@ -1,16 +1,9 @@
 import React from "react";
-/* import { useNavigate } from "react-router-dom"; */
 import "./product-card.scss";
 
-const ProductCard = ({
-  title = "",
-  image = "",
-  id = 0,
-  handleClick,
-  item = {},
-}) => {
+const ProductCard = ({ title = "", image = "", id = 0, handleClick }) => {
   const redirect = () => {
-    handleClick(id, item);
+    handleClick(id);
   };
   return (
     <article className="product-card" key={id}>

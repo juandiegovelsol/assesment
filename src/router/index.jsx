@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ClothesStore } from "../features/clothesStore";
 import { ClothesDetail } from "../features/clothesDetail";
-import { About } from "../features/about";
+import { About } from "../components/about";
 
 const router = createBrowserRouter([
   {

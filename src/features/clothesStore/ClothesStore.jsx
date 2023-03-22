@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { selectClothesStore, getClothesAsync } from "./clothesStoreSlice";
-import { setProductDetail } from "../clothesDetail/clothesDetailSlice";
 import { ProductCard } from "./ProductCard";
 import "./clothes-store.scss";
 const ClothesStore = () => {
@@ -11,20 +10,23 @@ const ClothesStore = () => {
   const { loading, list: products } = useSelector(selectClothesStore);
 
   useEffect(() => {
-    dispatch(getClothesAsync());
+    if (!products.length) {
+      dispatch(getClothesAsync());
+    }
   }, []);
 
-  const goToDetails = (id, item) => {
+  const goToDetails = (id) => {
     navigate(`/detail/${id}`);
   };
   if (loading) return <h1>Loading Component</h1>;
 
   return (
     <section className="clothes-store">
+      <br />
       <h1 className="clothes-store__title">Juan Diego's Clothing Store</h1>
-      <hr />
+      <br />
       <div className="clothes-store__store">
-        {products.map((item, index) => {
+        {products.map((item) => {
           const { title, image, id } = item;
           return (
             <div key={id}>

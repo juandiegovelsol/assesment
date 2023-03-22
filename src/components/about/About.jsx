@@ -1,6 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { CustomButton } from "../../components/customButton";
+import { CustomButton } from "../customButton";
 import image from "../../images/image.jpg";
 
 import "./about.scss";
@@ -16,25 +15,30 @@ const About = () => {
         </span>
         <span className="about__info">
           <p>
-            I'm a mechatronical engineer on his web developing learning process.
+            I'm a mechatronical engineer on his web development learning
+            process.
           </p>
+          <br />
           <p>
             During this course i have learned how to implement projects and use
             3 main tools to achieve that, such as:
           </p>
+          <br />
           <ul>
             <li>ReactJS</li>
             <li>Redux</li>
             <li>GitHub</li>
           </ul>
+          <br />
           <p>
             <strong>Contact information:</strong> juandiegovelsol@gmail.com
           </p>
+          <br />
           <a href="https://github.com/juandiegovelsol">
             Visit my github profile
           </a>
           <br />
-          <CustomButton route="" text="Go to Store" />
+          <CustomButton route="" text="Back to Store" />
         </span>
       </article>
     </section>
