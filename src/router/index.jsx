@@ -1,5 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ClothesStore } from "../features/clothesStore";
+import { ClothesDetail } from "../features/clothesDetail";
+import { About } from "../components/about";
 
 const router = createBrowserRouter([
   {
@@ -9,7 +11,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/about",
-    element: <div>About page</div>,
+    element: <About />,
+  },
+  {
+    path: "/detail/:id",
+    element: <ClothesDetail />,
   },
 ]);
 const CustomRouter = () => <RouterProvider router={router}></RouterProvider>;

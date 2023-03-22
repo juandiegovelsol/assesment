@@ -1,0 +1,13 @@
+.custom-button {
+  height: 50%;
+  width: 150px;
+  background-color: rgb(16, 84, 167);
+  color: white;
+  border: 1px solid grey;
+  border-radius: 5px;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    background-color: rgb(83, 134, 196);
+  }
+}
