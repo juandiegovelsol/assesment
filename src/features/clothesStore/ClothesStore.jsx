@@ -3,7 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { selectClothesStore, getClothesAsync } from "./clothesStoreSlice";
 import { ProductCard } from "./ProductCard";
+import { Menu } from "../../components/menu";
+import { CustomButton } from "../../components/customButton";
 import "./clothes-store.scss";
+
 const ClothesStore = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -22,9 +25,14 @@ const ClothesStore = () => {
 
   return (
     <section className="clothes-store">
-      <br />
+      <Menu
+        button_left={<CustomButton route="detail/1" text="Go to Details" />}
+        title="Juan Diego's Clothing Store"
+        button_rigth={<CustomButton route="about" text="Go to About" />}
+      />
+      {/* <br />
       <h1 className="clothes-store__title">Juan Diego's Clothing Store</h1>
-      <br />
+      <br /> */}
       <div className="clothes-store__store">
         {products.map((item) => {
           const { title, image, id } = item;

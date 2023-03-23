@@ -1,10 +1,11 @@
 .custom-button {
-  height: 50%;
+  min-height: 40px;
   width: 150px;
   background-color: rgb(16, 84, 167);
   color: white;
   border: 1px solid grey;
   border-radius: 5px;
+  font-size: medium;
   &:hover,
   &:focus {
     cursor: pointer;
