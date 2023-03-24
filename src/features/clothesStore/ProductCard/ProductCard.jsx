@@ -5,17 +5,24 @@ import "./product-card.scss";
 const ProductCard = ({ title = "", image = "", id = 0, handleClick }) => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
+  const [timeUp, setTimeUp] = useState("able");
+  const [buttonText, setButtonText] = useState("Go to Detail");
   const random = Math.floor(Math.random() * 10) + 1;
-  const { time, start, pause, reset, status } = useTimer({
+
+  const { time, start } = useTimer({
     initialTime: random * 60,
     timerType: "DECREMENTAL",
     endTime: 0,
   });
+
   const addCero = (remaining) => {
     return Math.trunc(remaining / 10) === 0 ? `0${remaining}` : `${remaining}`;
   };
-  const redirect = () => {
-    handleClick(id);
+
+  const redirect = (time) => {
+    if (time !== 0) {
+      handleClick(id);
+    }
   };
 
   useEffect(() => {
@@ -27,6 +34,10 @@ const ProductCard = ({ title = "", image = "", id = 0, handleClick }) => {
     setMinutes(calculate_minutes);
     const calculate_seconds = time % 60;
     setSeconds(calculate_seconds);
+    if (time === 0) {
+      setTimeUp("unable");
+      setButtonText("Unavailable");
+    }
   }, [time]);
 
   return (
@@ -40,8 +51,13 @@ const ProductCard = ({ title = "", image = "", id = 0, handleClick }) => {
           {addCero(minutes)}:{addCero(seconds)}
         </p>
         <p>Article #{id}</p>
-        <button className="product-card__button" onClick={redirect}>
-          Go to Details
+        <button
+          className={`product-card__button ${timeUp}`}
+          onClick={() => {
+            redirect(time);
+          }}
+        >
+          {buttonText}
         </button>
       </span>
     </article>
