@@ -1,36 +1,48 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { selectClothesStore, getClothesAsync } from "./clothesStoreSlice";
+import { ProductCard } from "./ProductCard";
+import { Menu } from "../../components/menu";
+import { CustomButton } from "../../components/customButton";
 import "./clothes-store.scss";
+
 const ClothesStore = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { loading, list: products } = useSelector(selectClothesStore);
 
   useEffect(() => {
-    dispatch(getClothesAsync());
+    if (!products.length) {
+      dispatch(getClothesAsync());
+    }
   }, []);
 
+  const goToDetails = (id) => {
+    navigate(`/detail/${id}`);
+  };
   if (loading) return <h1>Loading Component</h1>;
 
   return (
     <section className="clothes-store">
-      <h1 className="clothes-store__title">Juan Diego's Clothing Store</h1>
-      <hr />
+      <Menu
+        button_left={<CustomButton route="detail/1" text="Go to Details" />}
+        title="Juan Diego's Clothing Store"
+        button_rigth={<CustomButton route="about" text="Go to About" />}
+      />
       <div className="clothes-store__store">
-        {products.map((item, index) => {
-          const { title, image } = item;
+        {products.map((item) => {
+          const { title, image, id } = item;
           return (
-            <article className="product-card" key={index}>
-              <span className="product-card__image">
-                <img src={image} alt="Product card" />
-              </span>
-              <h2 className="product-card__title">{title}</h2>
-              <span className="product-card__footer">
-                <p>Timer</p>
-                <p># {index + 1}</p>
-                <button>Details</button>
-              </span>
-            </article>
+            <div key={id}>
+              <ProductCard
+                title={title}
+                image={image}
+                id={id}
+                item={item}
+                handleClick={goToDetails}
+              />
+            </div>
           );
         })}
       </div>
