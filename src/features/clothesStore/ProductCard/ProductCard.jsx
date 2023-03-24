@@ -27,6 +27,7 @@ const ProductCard = ({ title = "", image = "", id = 0, handleClick }) => {
 
   useEffect(() => {
     start();
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
