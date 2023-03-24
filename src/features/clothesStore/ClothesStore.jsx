@@ -30,9 +30,6 @@ const ClothesStore = () => {
         title="Juan Diego's Clothing Store"
         button_rigth={<CustomButton route="about" text="Go to About" />}
       />
-      {/* <br />
-      <h1 className="clothes-store__title">Juan Diego's Clothing Store</h1>
-      <br /> */}
       <div className="clothes-store__store">
         {products.map((item) => {
           const { title, image, id } = item;
