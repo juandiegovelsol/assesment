@@ -16,6 +16,7 @@ const ClothesStore = () => {
     if (!products.length) {
       dispatch(getClothesAsync());
     }
+    // eslint-disable-next-line
   }, []);
 
   const goToDetails = (id) => {
