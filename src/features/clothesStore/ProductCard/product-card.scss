@@ -38,6 +38,13 @@
     &:focus {
       cursor: pointer;
       background-color: rgb(83, 134, 196);
+      &.unable {
+        cursor: no-drop;
+        background-color: rgb(192, 71, 71);
+      }
+    }
+    &.unable {
+      background-color: rgb(162, 0, 0);
     }
   }
 }

@@ -5,6 +5,7 @@ import { selectClothesDetail, getOneProductAsync } from "./clothesDetailSlice";
 import { selectClothesStore } from "../clothesStore/clothesStoreSlice";
 import { useParams } from "react-router-dom";
 import { CustomButton } from "../../components/customButton";
+import { Menu } from "../../components/menu";
 import "./clothes-detail.scss";
 
 const ClothesDetail = () => {
@@ -34,11 +35,11 @@ const ClothesDetail = () => {
 
   return (
     <div className="product-details">
-      <div className="product-details__nav-bar">
-        <CustomButton route="" text="Return to Store" />
-        <h2 className="product-details__title">Product detail</h2>
-        <CustomButton route="about" text="Go to About" />
-      </div>
+      <Menu
+        button_left={<CustomButton route="" text="Return to Store" />}
+        title="Product Detail"
+        button_rigth={<CustomButton route="about" text="Go to About" />}
+      />
       <section className="product-details__details">
         <span className="product-title">
           <h2>{product.title || productAsync.title}</h2>

@@ -8,7 +8,6 @@ const About = () => {
   return (
     <section className="about">
       <h2 className="about__title">Juan Diego Velasco Solano</h2>
-
       <article className="about__card">
         <span className="about__image">
           <img src={image} alt="me" />
